@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Método IA PRO™ — Domine e Lucre com Inteligência Artificial</title>
+    <style>
+        :root {
+            --primary: #0d6efd;
+            --dark: #111;
+            --light: #fff;
+            --accent: #ffc107;
+            --green: #28a745;
+            --max-width: 1100px;
+        }
+
+        /* ===== Base reset ===== */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            color: var(--dark);
+            background: var(--light);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin-inline: auto;
+        }
+
+        /* ===== Header ===== */
+        header {
+            background: var(--dark);
+            color: var(--light);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            transition: background .3s ease, backdrop-filter .3s ease, box-shadow .3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(17, 17, 17, .65);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, .4);
+        }
+
+        .header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 0;
+            position: relative;
+        }
+
+        /* logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: .6rem;
+        }
+
+        .logo img {
+            height: 56px;
+            width: auto;
+        }
+
+        .logo span {
+            font-size: 1.25rem;
+            font-weight: 800;
+        }
+
+        /* desktop CTAs */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+        }
+
+        /* ===== BOTÃO COM EFEITO GLITCH HOLOGRÁFICO ===== */
+
+        .cta-main {
+            position: relative;
+            background: var(--primary);
+            color: var(--light);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            overflow: hidden;
+            transition: filter .25s ease;
+            z-index: 1;
+        }
+
+        /* CORTES GLITCH NO FUNDO */
+        .cta-main::before,
+        .cta-main::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--primary);
+            opacity: 0.7;
+            mix-blend-mode: screen;
+            z-index: -1;
+        }
+
+        .cta-main::before {
+            animation: glitch1 1.8s infinite linear alternate-reverse;
+        }
+
+        .cta-main::after {
+            animation: glitch2 2.1s infinite linear alternate-reverse;
+        }
+
+        /* SCANLINES */
+        .cta-main::after {
+            background-image: repeating-linear-gradient(to bottom,
+                    rgba(255, 255, 255, 0.05) 0px,
+                    rgba(255, 255, 255, 0.05) 1px,
+                    transparent 1px,
+                    transparent 3px);
+            background-color: var(--primary);
+        }
+
+        /* RUIDO PIXELADO */
+        .cta-main::before {
+            background-image: radial-gradient(rgba(255, 0, 0, 0.12) 1px, transparent 1px), radial-gradient(rgba(0, 255, 255, 0.12) 1px, transparent 1px), radial-gradient(rgba(255, 255, 0, 0.1) 1px, transparent 1px);
+            background-size: 4px 4px;
+            background-blend-mode: screen;
+            background-color: var(--primary);
+        }
+
+        /* ===== Keyframes agressivos ===== */
+        @keyframes glitch1 {
+            0% {
+                clip-path: inset(5% 0 80% 0);
+                transform: translate(3px, -2px);
+            }
+
+            10% {
+                clip-path: inset(20% 0 60% 0);
+                transform: translate(-3px, 2px);
+            }
+
+            20% {
+                clip-path: inset(40% 0 40% 0);
+                transform: translate(2px, -3px);
+            }
+
+            30% {
+                clip-path: inset(60% 0 20% 0);
+                transform: translate(-2px, 3px);
+            }
+
+            40% {
+                clip-path: inset(75% 0 10% 0);
+                transform: translate(3px, -1px);
+            }
+
+            50% {
+                clip-path: inset(90% 0 5% 0);
+                transform: translate(-3px, 1px);
+            }
+
+            60%,
+            100% {
+                clip-path: inset(0 0 0 0);
+                transform: translate(0);
+            }
+        }
+
+        @keyframes glitch2 {
+            0% {
+                clip-path: inset(0 0 90% 0);
+                transform: translate(-3px, 3px);
+            }
+
+            15% {
+                clip-path: inset(25% 0 65% 0);
+                transform: translate(3px, -2px);
+            }
+
+            30% {
+                clip-path: inset(50% 0 40% 0);
+                transform: translate(-2px, 3px);
+            }
+
+            45% {
+                clip-path: inset(70% 0 20% 0);
+                transform: translate(2px, -3px);
+            }
+
+            60% {
+                clip-path: inset(85% 0 10% 0);
+                transform: translate(-3px, 2px);
+            }
+
+            75%,
+            100% {
+                clip-path: inset(0 0 0 0);
+                transform: translate(0);
+            }
+        }
+
+
+        .cta-header,
+        .cta-afiliados {
+            padding: .65rem 1.2rem;
+            font-weight: 700;
+            font-size: .95rem;
+            border-radius: 4px;
+            white-space: nowrap;
+            transition: filter .25s ease;
+        }
+
+        .cta-header {
+            background: var(--accent);
+            color: var(--dark);
+        }
+
+        .cta-afiliados {
+            background: var(--green);
+            color: var(--light);
+        }
+
+        .cta-header:hover,
+        .cta-afiliados:hover {
+            filter: brightness(.9);
+        }
+
+        /* hamburger */
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.9rem;
+            cursor: pointer;
+        }
+
+        /* mobile dropdown */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(17, 17, 17, .92);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            padding: 1rem;
+            border-radius: 0 0 0 8px;
+            flex-direction: column;
+            gap: .8rem;
+            min-width: 190px;
+        }
+
+        .mobile-menu a {
+            display: block;
+            text-align: center;
+        }
+
+        .mobile-menu.open {
+            display: flex;
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            padding: 4rem 0 2rem;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .hero .cta-main {
+            background: var(--primary);
+            color: var(--light);
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: filter .25s ease;
+        }
+
+        .hero .cta-main:hover {
+            filter: brightness(.9);
+        }
+
+        /* ===== Video ===== */
+        .vsl {
+            padding: 2rem 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .vsl iframe {
+            width: 100%;
+            max-width: 800px;
+            height: 450px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* ===== Sections ===== */
+        section {
+            padding: 3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        section h2 {
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            font-weight: 800;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .list-check li {
+            list-style: none;
+            position: relative;
+            padding-left: 26px;
+            margin-bottom: .75rem;
+        }
+
+        .list-check li::before {
+            content: "\2713";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        /* ===== Pricing ===== */
+        .pricing-box {
+            background: var(--primary);
+            color: var(--light);
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .pricing-box h3 {
+            font-size: 2.1rem;
+            margin-bottom: .5rem;
+            font-weight: 800;
+        }
+
+        .pricing-box p {
+            margin-bottom: 1rem;
+            font-size: 1.15rem;
+        }
+
+        .pricing-box .price {
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        .btn-buy {
+            background: var(--accent);
+            color: var(--dark);
+            padding: 1rem 2.2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.15rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: filter .25s ease;
+        }
+
+        .btn-buy:hover {
+            filter: brightness(.9);
+        }
+
+        /* ===== Guarantee ===== */
+        .guarantee {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1rem;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            background: #f3f3f3;
+            padding: 2rem 0;
+            text-align: center;
+            font-size: .9rem;
+            color: #666;
+        }
+
+        /* ===== Responsive ===== */
+        @media(max-width:600px) {
+            .vsl iframe {
+                height: 250px;
+            }
+
+            .logo img {
+                height: 38px;
+            }
+
+            .logo span {
+                font-size: 1.05rem;
+            }
+
+            .nav-actions {
+                display: none;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header id="mainHeader">
+        <div class="container header-flex">
+            <div class="logo">
+                <img src="assets/images/logo-rn.png" alt="Logo REAL NOMADZ" />
+                <span>Método IA PRO™</span>
+            </div>
+            <!-- Desktop CTAs -->
+            <div class="nav-actions">
+                <a href="#afiliados" class="cta-afiliados">Afiliados</a>
+                <a href="#oferta" class="cta-header">Garanta sua vaga</a>
+            </div>
+            <!-- Hamburger -->
+            <button class="hamburger" id="hamburger" aria-label="Menu">&#9776;</button>
+            <!-- Mobile menu -->
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#oferta" class="cta-header" onclick="closeMenu()">Garanta sua vaga</a>
+                <a href="#afiliados" class="cta-afiliados" onclick="closeMenu()">Afiliados</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <h1>Domine e Lucre com Inteligência Artificial</h1>
+            <p>Aprenda a usar as IAs mais poderosas de 2025 para criar textos, imagens, vídeos e vozes profissionais e
+                transformar isso em dinheiro, produtividade e liberdade – mesmo começando do zero.</p>
+            <button class="cta-main" onclick="document.getElementById('oferta').scrollIntoView({behavior:'smooth'})">
+                Quero garantir minha vaga
+            </button>
+
+        </div>
+    </section>
+
+    <!-- VSL -->
+    <div class="vsl container">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="VSL Método IA PRO" allowfullscreen></iframe>
+    </div>
+
+    <!-- PARA QUEM -->
+    <section id="publico">
+        <div class="container">
+            <h2>Para quem é o Método IA PRO™?</h2>
+            <ul class="list-check">
+                <li>Empreendedores e donos de negócio</li>
+                <li>Profissionais liberais que buscam produtividade</li>
+                <li>Criadores de conteúdo que querem escalar produção</li>
+                <li>Freelancers que desejam vender serviços de IA</li>
+                <li>Pessoas comuns que querem aumentar a renda</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- O QUE VOCE APRENDE -->
+    <section>
+        <div class="container">
+            <h2>Você vai aprender a...</h2>
+            <div class="grid-2">
+                <ul class="list-check">
+                    <li>Dominar ChatGPT-4o, Gemini, Claude 3.5, Veo 3 e outras IAs top</li>
+                    <li>Criar textos, imagens, vídeos e vozes com qualidade profissional</li>
+                    <li>Montar rotinas e automações que trabalham por você</li>
+                    <li>Transformar IA em serviços, produtos digitais e novas fontes de renda</li>
+                </ul>
+                <ul class="list-check">
+                    <li>Configurar fluxos completos de conteúdo automatizado</li>
+                    <li>Aplicar frameworks de prompts avançados multimodais</li>
+                    <li>Implementar IA no marketing, vendas e operações</li>
+                    <li>Ficar à frente de 99% do mercado no uso prático de IA</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- BONUS -->
+    <section>
+        <div class="container">
+            <h2>Bônus Exclusivos (tempo limitado)</h2>
+            <ul class="list-check">
+                <li>Pack de 1.000 Super Prompts Profissionais</li>
+                <li>Mini-curso Hackeando o YouTube Shorts com IA</li>
+                <li>Masterclass: Criando Vídeos com Google Veo 3</li>
+                <li>Checklist: 7 Modelos de Negócios com IA</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- GARANTIA -->
+    <section class="guarantee">
+        <div class="container">
+            <h2>Garantia Incondicional de 7 Dias</h2>
+            <p>Teste todo o Método IA PRO™ sem risco. Se não gostar, é só pedir o reembolso dentro de 7 dias e
+                devolvemos 100% do seu investimento.</p>
+        </div>
+    </section>
+
+    <!-- OFERTA -->
+    <section id="oferta">
+        <div class="container">
+            <div class="pricing-box">
+                <h3>Acesso Vitalício + Atualizações</h3>
+                <p>Preço de lançamento por tempo limitado</p>
+                <div class="price">R$ 97<br><span
+                        style="font-size:1rem;font-weight:400;text-decoration:line-through;opacity:.8">R$ 497</span>
+                </div>
+                <button class="btn-buy" onclick="window.location.href='#'">Quero garantir minha vaga</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2025 Método IA PRO™. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        // Rolagem suave para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) { target.scrollIntoView({ behavior: 'smooth' }); }
+            });
+        });
+
+        // Efeito vidro preto transparente on scroll
+        const header = document.getElementById('mainHeader');
+        const toggleHeader = () => {
+            if (window.scrollY > 10) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+        window.addEventListener('scroll', toggleHeader);
+        // executa na carga inicial caso abra no meio da página
+        toggleHeader();
+
+        // Mobile menu
+        const burger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        burger.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+        function closeMenu() {
+            mobileMenu.classList.remove('open');
+        }
+    </script>
+
+    <script>
+    // Carrega o áudio
+    const glitchSound = new Audio('assets/sfx/glitch-fx.mp3');
+    glitchSound.volume = 0.3; // Volume reduzido para não ser irritante
+
+    // Seleciona o botão
+    const ctaButton = document.querySelector('.cta-main');
+
+    // Toca o som ao passar o mouse
+    ctaButton.addEventListener('mouseenter', () => {
+        glitchSound.currentTime = 0; // Reinicia o som se estiver tocando
+        glitchSound.play();
+    });
+
+
+     // Carrega o som bop
+    const bopSound = new Audio('assets/sfx/ui-sound.mp3');
+    bopSound.volume = 1; // Volume equilibrado
+
+    // Seleciona o botão dentro do card de oferta
+    const buyButton = document.querySelector('.btn-buy');
+
+    // Toca o som ao passar o mouse
+    buyButton.addEventListener('mouseenter', () => {
+        bopSound.currentTime = 0;
+        bopSound.play();
+    });
+</script>
+
+
+
+</body>
+
+</html>
