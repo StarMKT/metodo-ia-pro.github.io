@@ -6,6 +6,15 @@
     font-style: normal;
 }
 
+/* Aplica o cursor personalizado apenas para elementos interativos */
+a, button, [role="button"], input[type="button"], input[type="submit"] {
+  cursor: url('assets/cursor/aim.png') 16 16, auto;
+}
+
+
+a:hover, button:hover, .hoverable:hover, .clicavel:hover {
+  cursor: url('assets/cursor/aim.png') 16 16, auto;
+}
 
 :root {
     --primary: #0B1E45;
@@ -22,6 +31,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Univers', sans-serif;
+    cursor: url('assets/cursor/aim.png'), auto;
 }
 
 body {
@@ -463,132 +473,159 @@ header.scrolled {
 /* ===== Carousel ===== */
 
 .campus-carousel {
-  background: #f9f9f9;
-  padding: 4rem 1rem;
-  text-align: center;
+    background: #f9f9f9;
+    padding: 4rem 1rem;
+    text-align: center;
 }
+
 .campus-subtitle {
-  font-size: .9rem;
-  letter-spacing: .5rem;
-  color: #25345d;
-  margin-bottom: .5rem;
+    font-size: .9rem;
+    letter-spacing: .5rem;
+    color: #25345d;
+    margin-bottom: .5rem;
 }
+
 .campus-title {
-  font-size: 2.4rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
 }
+
 .carousel-wrapper {
-  position: relative;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
+
 .carousel-track-container {
-  overflow: hidden;
-  flex: 1;
+    overflow: hidden;
+    flex: 1;
 }
+
 .carousel-track {
-  display: flex;
-  gap: 1.5rem;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 1rem 0;
-  justify-content: center;
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 1rem 0;
+    justify-content: center;
 }
+
 .carousel-card {
-  flex: 0 0 calc(33.33% - 1.5rem);
-  max-width: calc(33.33% - 1.5rem);
-  background: #ececec;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 0 0 1px #ddd;
-  transition: transform .3s ease;
-  display: flex;
-  flex-direction: column;
-  height: 470px; /* Fixed height for all cards */
-  width: 100%; /* Ensure consistent width within flex constraints */
+    flex: 0 0 calc(33.33% - 1.5rem);
+    max-width: calc(33.33% - 1.5rem);
+    background: #ececec;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px #ddd;
+    transition: transform .3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 470px;
+    /* Fixed height for all cards */
+    width: 100%;
+    /* Ensure consistent width within flex constraints */
 }
+
 .carousel-card:hover {
-  transform: translateY(-6px);
+    transform: translateY(-6px);
 }
+
 .carousel-card img {
-  width: 100%;
-  height: 250px; /* Fixed height for images */
-  object-fit: cover; /* Ensures image fits without distortion */
-  display: block;
-  margin-bottom: 1rem;
+    width: 100%;
+    height: 250px;
+    /* Fixed height for images */
+    object-fit: cover;
+    /* Ensures image fits without distortion */
+    display: block;
+    margin-bottom: 1rem;
 }
+
 .carousel-content {
-  flex-grow: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start; /* Align content from the top */
-  text-align: center;
-  padding: 1rem;
-  background: #ececec;
-  transition: background .3s, color .3s;
-  overflow: hidden; /* Prevent content overflow */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* Align content from the top */
+    text-align: center;
+    padding: 1rem;
+    background: #ececec;
+    transition: background .3s, color .3s;
+    overflow: hidden;
+    /* Prevent content overflow */
 }
+
 .carousel-card:hover .carousel-content {
-  background: #000;
-  color: white;
+    background: #000;
+    color: white;
 }
+
 .carousel-content h4 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .5rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: .5rem;
-  color: inherit;
-  min-height: 60px; /* Fixed height for title section */
-  overflow: hidden; /* Prevent title overflow */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: .5rem;
+    color: inherit;
+    min-height: 60px;
+    /* Fixed height for title section */
+    overflow: hidden;
+    /* Prevent title overflow */
 }
+
 .carousel-content h4 img {
-  width: 24px;
-  height: 24px;
-  transition: filter 0.3s ease;
-  filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
+    width: 24px;
+    height: 24px;
+    transition: filter 0.3s ease;
+    filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0%) contrast(100%);
 }
+
 .carousel-card:hover .carousel-content h4 img {
-  filter: none;
+    filter: none;
 }
+
 .carousel-content p {
-  font-size: .95rem;
-  line-height: 1.5;
-  padding: 0 1rem;
-  overflow: hidden; /* Prevent text overflow without ellipsis */
-  /* Removed: text-overflow: ellipsis, -webkit-line-clamp, -webkit-box-orient */
+    font-size: .95rem;
+    line-height: 1.5;
+    padding: 0 1rem;
+    overflow: hidden;
+    /* Prevent text overflow without ellipsis */
+    /* Removed: text-overflow: ellipsis, -webkit-line-clamp, -webkit-box-orient */
 }
+
 .carousel-btn {
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  cursor: pointer;
-  z-index: 2;
-  transition: background .3s;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 2;
+    transition: background .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
+
 .carousel-btn:hover {
-  background: #eee;
+    background: #eee;
 }
+
 @media(max-width: 767px) {
-  .carousel-card {
-    flex: 0 0 100%;
-    max-width: 100%;
-    height: 600px; /* Maintain fixed height on mobile */
-  }
+    .carousel-card {
+        flex: 0 0 100%;
+        max-width: 100%;
+        height: 600px;
+        /* Maintain fixed height on mobile */
+    }
 }
 
 
