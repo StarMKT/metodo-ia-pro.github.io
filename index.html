@@ -93,6 +93,47 @@
         </div>
     </section>
 
+    <section class="campus-carousel">
+        <div class="container">
+            <h3 class="campus-subtitle">HOJE MESMO</h3>
+            <h2 class="campus-title">Você Vai Aprender:</h2>
+            <div class="carousel-wrapper">
+                <button class="carousel-btn left" onclick="scrollCarousel(-1)">←</button>
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Card 1 -->
+                        <div class="carousel-card">
+                            <img src="assets/images/c1.png" alt="Copywriting">
+                            <div class="carousel-content">
+                                <h4><img src="assets/icons/brain.svg">Criar Prompts Profissionalmente</h4>
+                                <p>Aprenda a escrever prompts como um verdadeiro profissional de IA. <b>Chega de perder
+                                        horas escrevendo e reescrevendo comandos ruins.</b></p>
+                            </div>
+                        </div>
+                        <!-- Card 2 -->
+                        <div class="carousel-card">
+                            <img src="assets/images/c2.png" alt="Fitness">
+                            <div class="carousel-content">
+                                <h4><img src="assets/icons/tools.svg">Ferramentas de Última Geração</h4>
+                                <p>Desde <b>IAs Generativas, IA Vertical até automações</b>. Aprenda a operar as
+                                    ferramentas mais avançadas para potencializar sua produtividade e resultados.</p>
+                            </div>
+                        </div>
+                        <!-- Card 3 -->
+                        <div class="carousel-card">
+                            <img src="assets/images/c3.png" alt="Community">
+                            <div class="carousel-content">
+                                <h4><img src="assets/icons/buy.svg">Marketing Digital com IA</h4>
+                                <p>Domine as melhores estratégias de marketing digital utilizando IA para alavancar seus
+                                    resultados exponencialmente.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-btn right" onclick="scrollCarousel(1)">→</button>
+            </div>
+        </div>
+    </section>
 
     <!-- PARA QUEM -->
     <section id="publico">
@@ -234,6 +275,7 @@
     </script>
 
 
+    <script src="js/carousel.js"></script>
 
 </body>
 
